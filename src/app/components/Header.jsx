@@ -37,8 +37,8 @@ const Header = () => {
           
         </div>
 
-        <div className='flex 2xl:hidden px-2 sm:px-4 md:px-8  hover:bg-white h-8 rounded-full items-center justify-center cursor-pointer'>
-          <Menu onClick={() => setShowMenu(!showMenu)} size={24} />
+        <div onClick={() => setShowMenu(!showMenu)} className='flex 2xl:hidden px-2 sm:px-4 md:px-8  hover:bg-white h-8 rounded-full items-center justify-center cursor-pointer'>
+          <Menu  size={24} />
             <h1 className='font-semibold text-base'>Menu</h1>
         </div>
 
