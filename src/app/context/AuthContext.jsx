@@ -48,9 +48,7 @@ export const AuthProvider = ({ children }) => {
 
     const emailLower = email.toLowerCase();
 
-    const emailAlreadyUsed = users.some(
-      user => user.email.toLowerCase() === emailLower
-    );
+    const emailAlreadyUsed = users.some(user => user.email.toLowerCase() === emailLower);
 
     if (emailAlreadyUsed) {
       return false;

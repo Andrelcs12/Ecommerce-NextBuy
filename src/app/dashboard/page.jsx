@@ -19,7 +19,7 @@ const Dashboard = () => {
   const handleApagar = () => {
     localStorage.removeItem('loggedUser');
     localStorage.removeItem('users');
-    router.push('/login');
+    router.push('/cadastro');
   };
 
   return (

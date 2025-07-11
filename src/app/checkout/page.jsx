@@ -184,7 +184,7 @@ export default function CheckoutPage() {
                 <div>
                   <label htmlFor="number" className="block text-sm font-medium text-gray-700 mb-1">Número</label>
                   <input
-                    type="text"
+                    type="number"
                     id="number"
                     name="number"
                     value={shippingAddress.number}
