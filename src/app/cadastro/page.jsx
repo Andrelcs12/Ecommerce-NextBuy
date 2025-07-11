@@ -67,7 +67,7 @@ const RegisterPage = () => {
                         <h1 className='text-3xl sm:text-5xl font-extrabold text-gray-800 tracking-wider'>NEXTBUY</h1>
                     </div>
 
-                    <h2 className='text-xl md:text-3xl font-bold text-gray-700 mb-8 text-center'>Crie sua conta NextBuy</h2>
+                    <h2 className='text-xl md:text-3xl font-bold text-gray-700 mb-8 text-center'>Crie sua nova conta NextBuy</h2>
 
                     <form className='space-y-6' onSubmit={handleSubmit}>
                         

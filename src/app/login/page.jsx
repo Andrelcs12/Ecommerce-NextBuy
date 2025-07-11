@@ -52,7 +52,8 @@ const LoginPage = () => {
                         <h1 className='text-3xl md:text-5xl font-extrabold text-gray-800 tracking-wider'>NEXTBUY</h1>
                     </div>
 
-                    <h2 className='text-xl md:text-3xl font-bold text-gray-700 mb-8 text-center'>Faça Login para começar</h2>
+                    <h3 className='text-lg mb-4 md:text-2xl font-bold text-gray-700 text-center'>Bem-vindo de voltar</h3>
+                    <h2 className='text-xl md:text-3xl font-bold text-gray-700 mb-8 text-center'>Faça Login para continuar</h2>
 
                     <form className='space-y-6' onSubmit={handleSubmit}>
                         <div className='relative'>
