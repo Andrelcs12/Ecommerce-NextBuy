@@ -88,7 +88,7 @@ const ProfilePage = () => {
     return (
       <div>
         <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Informações da Minha Conta</h2>
-        <p className="text-sm md:text-base text-gray-600 mb-6">
+        <p className="text-base md:text-base text-gray-600 mb-6">
           Gerencie seus dados pessoais e de segurança.
         </p>
 
@@ -96,45 +96,45 @@ const ProfilePage = () => {
           <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-4">Detalhes do Perfil</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+              <label htmlFor="firstName" className="block text-base font-medium text-gray-700 mb-1">Nome</label>
               <input
                 type="text"
                 id="firstName"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
                 placeholder="Seu nome"
                 required
               />
             </div>
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Sobrenome</label>
+              <label htmlFor="lastName" className="block text-base font-medium text-gray-700 mb-1">Sobrenome</label>
               <input
                 type="text"
                 id="lastName"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
                 placeholder="Seu sobrenome"
                 required
               />
             </div>
           </div>
           <div className="mt-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <label htmlFor="email" className="block text-base font-medium text-gray-700 mb-1">Email</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
               placeholder="seu.email@example.com"
               required
             />
           </div>
           <button
             type="submit"
-            className="mt-6 px-4 py-2 text-sm bg-blue-600 cursor-pointer text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
+            className="mt-6 px-4 py-2 text-base bg-blue-600 cursor-pointer text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
           >
             Salvar Alterações
           </button>
@@ -144,38 +144,38 @@ const ProfilePage = () => {
           <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-4 cursor-pointer">Alterar Senha</h3>
           <div className="space-y-4">
             <div>
-              <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700 mb-1">Senha Atual</label>
+              <label htmlFor="currentPassword" className="block text-base font-medium text-gray-700 mb-1">Senha Atual</label>
               <input
                 type="password"
                 id="currentPassword"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
                 placeholder="Sua senha atual"
                 required
               />
             </div>
             <div>
-              <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700 mb-1">Nova Senha</label>
+              <label htmlFor="newPassword" className="block text-base font-medium text-gray-700 mb-1">Nova Senha</label>
               <input
                 type="password"
                 id="newPassword"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
                 placeholder="Mínimo 8 caracteres"
                 required
                 minLength={8}
               />
             </div>
             <div>
-              <label htmlFor="confirmNewPassword" className="block text-sm font-medium text-gray-700 mb-1">Confirmar Nova Senha</label>
+              <label htmlFor="confirmNewPassword" className="block text-base font-medium text-gray-700 mb-1">Confirmar Nova Senha</label>
               <input
                 type="password"
                 id="confirmNewPassword"
                 value={confirmNewPassword}
                 onChange={(e) => setConfirmNewPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
                 placeholder="Confirme sua nova senha"
                 required
                 minLength={8}
@@ -184,7 +184,7 @@ const ProfilePage = () => {
           </div>
           <button
             type="submit"
-            className="mt-6 px-4 py-2 text-sm cursor-pointer bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
+            className="mt-6 px-4 py-2 text-base cursor-pointer bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
           >
             Alterar Senha
           </button>
@@ -222,21 +222,21 @@ const ProfilePage = () => {
     return (
       <div>
         <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Meus Endereços Cadastrados</h2>
-        <p className="text-sm md:text-base text-gray-600 mb-6">
+        <p className="text-base md:text-base text-gray-600 mb-6">
           Visualize, edite ou adicione endereços para suas entregas.
         </p>
 
         {addresses.length === 0 && !isAddingNewAddress && (
-          <p className="text-gray-500 mb-4 text-sm">Nenhum endereço cadastrado.</p>
+          <p className="text-gray-500 mb-4 text-base">Nenhum endereço cadastrado.</p>
         )}
 
         <div className="space-y-4 mb-6">
           {addresses.map((addr, index) => (
             <div key={index} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
               <p className="font-semibold text-gray-800 text-base">{addr.street}, {addr.number}</p>
-              <p className="text-sm text-gray-600">{addr.neighborhood}, {addr.city} - {addr.state}</p>
-              <p className="text-sm text-gray-600">CEP: {addr.zipCode}</p>
-              {addr.complement && <p className="text-sm text-gray-600">Complemento: {addr.complement}</p>}
+              <p className="text-base text-gray-600">{addr.neighborhood}, {addr.city} - {addr.state}</p>
+              <p className="text-base text-gray-600">CEP: {addr.zipCode}</p>
+              {addr.complement && <p className="text-base text-gray-600">Complemento: {addr.complement}</p>}
             </div>
           ))}
         </div>
@@ -244,7 +244,7 @@ const ProfilePage = () => {
         {!isAddingNewAddress ? (
           <button
             onClick={() => setIsAddingNewAddress(true)}
-            className="px-4 py-2 text-sm bg-green-600 text-white cursor-pointer rounded-md hover:bg-green-700 transition-colors duration-300"
+            className="px-4 py-2 text-base bg-green-600 text-white cursor-pointer rounded-md hover:bg-green-700 transition-colors duration-300"
           >
             Adicionar Novo Endereço
           </button>
@@ -253,93 +253,93 @@ const ProfilePage = () => {
             <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-4 cursor-pointer">Adicionar Novo Endereço</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="street" className="block text-sm font-medium text-gray-700 mb-1">Rua</label>
+                <label htmlFor="street" className="block text-base font-medium text-gray-700 mb-1">Rua</label>
                 <input
                   type="text"
                   id="street"
                   value={street}
                   onChange={(e) => setStreet(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="number" className="block text-sm font-medium text-gray-700 mb-1">Número</label>
+                <label htmlFor="number" className="block text-base font-medium text-gray-700 mb-1">Número</label>
                 <input
                   type="text"
                   id="number"
                   value={number}
                   onChange={(e) => setNumber(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="neighborhood" className="block text-sm font-medium text-gray-700 mb-1">Bairro</label>
+                <label htmlFor="neighborhood" className="block text-base font-medium text-gray-700 mb-1">Bairro</label>
                 <input
                   type="text"
                   id="neighborhood"
                   value={neighborhood}
                   onChange={(e) => setNeighborhood(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">Cidade</label>
+                <label htmlFor="city" className="block text-base font-medium text-gray-700 mb-1">Cidade</label>
                 <input
                   type="text"
                   id="city"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">Estado</label>
+                <label htmlFor="state" className="block text-base font-medium text-gray-700 mb-1">Estado</label>
                 <input
                   type="text"
                   id="state"
                   value={state}
                   onChange={(e) => setState(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">CEP</label>
+                <label htmlFor="zipCode" className="block text-base font-medium text-gray-700 mb-1">CEP</label>
                 <input
                   type="text"
                   id="zipCode"
                   value={zipCode}
                   onChange={(e) => setZipCode(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   required
                 />
               </div>
             </div>
             <div className="mt-4">
-              <label htmlFor="complement" className="block text-sm font-medium text-gray-700 mb-1">Complemento (Opcional)</label>
+              <label htmlFor="complement" className="block text-base font-medium text-gray-700 mb-1">Complemento (Opcional)</label>
               <input
                 type="text"
                 id="complement"
                 value={complement}
                 onChange={(e) => setComplement(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
               />
             </div>
             <div className="flex justify-end gap-3 mt-6">
               <button
                 type="button"
                 onClick={() => setIsAddingNewAddress(false)}
-                className="px-4 py-2 text-sm bg-gray-300 text-gray-800 cursor-pointer font-medium rounded-md hover:bg-gray-400 transition-colors duration-300"
+                className="px-4 py-2 text-base bg-gray-300 text-gray-800 cursor-pointer font-medium rounded-md hover:bg-gray-400 transition-colors duration-300"
               >
                 Cancelar
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 text-sm bg-blue-600 cursor-pointer text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
+                className="px-4 py-2 text-base bg-blue-600 cursor-pointer text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
               >
                 Salvar Endereço
               </button>
@@ -353,25 +353,25 @@ const ProfilePage = () => {
   const OrderHistory = () => (
     <div>
       <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Histórico de Pedidos</h2>
-      <p className="text-sm md:text-base text-gray-600 mb-6">
+      <p className="text-base md:text-base text-gray-600 mb-6">
         Acompanhe seus pedidos recentes e visualize os detalhes completos.
       </p>
       <div className="space-y-4">
         <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <div>
             <p className="font-semibold text-gray-800 text-base">Pedido #20250703-001</p>
-            <p className="text-sm text-gray-600">Data: 03/07/2025</p>
-            <p className="text-sm text-green-600 font-medium">Status: Entregue</p>
+            <p className="text-base text-gray-600">Data: 03/07/2025</p>
+            <p className="text-base text-green-600 font-medium">Status: Entregue</p>
           </div>
-          <Link href="/pedidos/20250703-001" className="text-blue-600 hover:underline transition-colors duration-300 mt-2 sm:mt-0 text-sm">Ver Detalhes</Link>
+          <Link href="/pedidos/20250703-001" className="text-blue-600 hover:underline transition-colors duration-300 mt-2 sm:mt-0 text-base">Ver Detalhes</Link>
         </div>
         <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <div>
             <p className="font-semibold text-gray-800 text-base">Pedido #20250620-005</p>
-            <p className="text-sm text-gray-600">Data: 20/06/2025</p>
-            <p className="text-sm text-yellow-600 font-medium">Status: Em Processamento</p>
+            <p className="text-base text-gray-600">Data: 20/06/2025</p>
+            <p className="text-base text-yellow-600 font-medium">Status: Em Processamento</p>
           </div>
-          <Link href="/pedidos/20250620-005" className="text-blue-600 hover:underline transition-colors duration-300 mt-2 sm:mt-0 text-sm">Ver Detalhes</Link>
+          <Link href="/pedidos/20250620-005" className="text-blue-600 hover:underline transition-colors duration-300 mt-2 sm:mt-0 text-base">Ver Detalhes</Link>
         </div>
       </div>
     </div>
@@ -400,20 +400,20 @@ const ProfilePage = () => {
     return (
       <div>
         <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Minhas Opções de Pagamento</h2>
-        <p className="text-sm md:text-base text-gray-600 mb-6">
+        <p className="text-base md:text-base text-gray-600 mb-6">
           Gerencie seus cartões salvos para um checkout mais rápido e seguro.
         </p>
 
         {paymentMethods.length === 0 && !isAddingNewCard && (
-          <p className="text-gray-500 mb-4 text-sm">Nenhum cartão adicionado.</p>
+          <p className="text-gray-500 mb-4 text-base">Nenhum cartão adicionado.</p>
         )}
 
         <div className="space-y-4 mb-6">
           {paymentMethods.map((card, index) => (
             <div key={index} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
               <p className="font-semibold text-gray-800 text-base">Cartão Final: {card.cardNumber.slice(-4)}</p>
-              <p className="text-sm text-gray-600">Nome: {card.cardHolderName}</p>
-              <p className="text-sm text-gray-600">Validade: {card.expiryDate}</p>
+              <p className="text-base text-gray-600">Nome: {card.cardHolderName}</p>
+              <p className="text-base text-gray-600">Validade: {card.expiryDate}</p>
             </div>
           ))}
         </div>
@@ -421,7 +421,7 @@ const ProfilePage = () => {
         {!isAddingNewCard ? (
           <button
             onClick={() => setIsAddingNewCard(true)}
-            className="px-4 py-2 text-sm bg-green-600 text-white rounded-md cursor-pointer hover:bg-green-700 transition-colors duration-300"
+            className="px-4 py-2 text-base bg-green-600 text-white rounded-md cursor-pointer hover:bg-green-700 transition-colors duration-300"
           >
             Adicionar Novo Cartão
           </button>
@@ -430,50 +430,50 @@ const ProfilePage = () => {
             <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-4 cursor-pointer">Adicionar Novo Cartão</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700 mb-1">Número do Cartão</label>
+                <label htmlFor="cardNumber" className="block text-base font-medium text-gray-700 mb-1">Número do Cartão</label>
                 <input
                   type="text"
                   id="cardNumber"
                   value={cardNumber}
                   onChange={(e) => setCardNumber(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   placeholder="xxxx xxxx xxxx xxxx"
                   maxLength="19"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="cardHolderName" className="block text-sm font-medium text-gray-700 mb-1">Nome no Cartão</label>
+                <label htmlFor="cardHolderName" className="block text-base font-medium text-gray-700 mb-1">Nome no Cartão</label>
                 <input
                   type="text"
                   id="cardHolderName"
                   value={cardHolderName}
                   onChange={(e) => setCardHolderName(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="expiryDate" className="block text-sm font-medium text-gray-700 mb-1">Data de Validade (MM/AA)</label>
+                <label htmlFor="expiryDate" className="block text-base font-medium text-gray-700 mb-1">Data de Validade (MM/AA)</label>
                 <input
                   type="text"
                   id="expiryDate"
                   value={expiryDate}
                   onChange={(e) => setExpiryDate(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   placeholder="MM/AA"
                   maxLength="5"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="cvv" className="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                <label htmlFor="cvv" className="block text-base font-medium text-gray-700 mb-1">CVV</label>
                 <input
                   type="text"
                   id="cvv"
                   value={cvv}
                   onChange={(e) => setCvv(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-base"
                   placeholder="XXX"
                   maxLength="4"
                   required
@@ -484,13 +484,13 @@ const ProfilePage = () => {
               <button
                 type="button"
                 onClick={() => setIsAddingNewCard(false)}
-                className="px-4 py-2 text-sm bg-gray-300 cursor-pointer text-gray-800 font-medium rounded-md hover:bg-gray-400 transition-colors duration-300"
+                className="px-4 py-2 text-base bg-gray-300 cursor-pointer text-gray-800 font-medium rounded-md hover:bg-gray-400 transition-colors duration-300"
               >
                 Cancelar
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 text-sm cursor-pointer bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
+                className="px-4 py-2 text-base cursor-pointer bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md"
               >
                 Salvar Cartão
               </button>
@@ -521,7 +521,7 @@ const ProfilePage = () => {
       <Header />
 
       <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 p-2 border border-zinc-300 rounded-lg w-fit text-gray-700 hover:text-blue-600 transition-colors duration-300 mb-6 text-sm">
+        <Link href="/" className="flex items-center gap-2 p-2 border border-zinc-300 rounded-lg w-fit text-gray-700 hover:text-blue-600 transition-colors duration-300 mb-6 text-base">
           <ArrowLeft size={16} className="sm:size-4" />
           <span className="font-bold">Voltar para Home</span>
         </Link>
@@ -532,7 +532,7 @@ const ProfilePage = () => {
           </div>
           <div className="flex flex-col text-center sm:text-left">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{user?.nome || 'Usuário'} {user?.sobrenome || ''}</h1>
-            <p className="text-sm sm:text-base text-gray-600">{user?.email || 'email@example.com'}</p>
+            <p className="text-base sm:text-base text-gray-600">{user?.email || 'email@example.com'}</p>
           </div>
         </div>
 

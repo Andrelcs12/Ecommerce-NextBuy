@@ -20,26 +20,26 @@ const RegisterPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (password.length < 8) {
-            showToast("A senha deve ter 8 ou mais caracteres.");
-            return;
-        }
-        
-        if (password !== confirmPassword) {
-            showToast('As senhas não coincidem. Por favor, tente novamente.');
-            return;
-        }
-        
-        const success = cadastro(nome, sobrenome, email, password);
-        if (success) {
-            showToast('Cadastro realizado com sucesso!');
-            router.push("/dashboard");
-        } else {
-            showToast('Erro ao cadastrar. Verifique se o email já está em uso.');
-            setEmail('');
-            setPassword('');
-            setConfirmPassword('');
-        }
+        if (password.length < 8) { 
+                showToast("A senha deve ter 8 ou mais caracteres.");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showToast('As senhas não coincidem. Por favor, tente novamente.');
+                return;
+            }
+
+            const success = cadastro(nome, sobrenome, email, password);
+            if (success) {
+                showToast('Cadastro realizado com sucesso!');
+                router.push("/dashboard");
+            } else {
+                showToast('Erro ao cadastrar. Verifique se o email já está em uso.');
+                setEmail('');
+                setPassword('');
+                setConfirmPassword('');
+            }
     }
 
     return (
