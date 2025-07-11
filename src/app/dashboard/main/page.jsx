@@ -177,7 +177,7 @@ const Page = () => {
                   <button
                     key={categoryKey}
                     onClick={() => handleCategoryClick(categoryKey)}
-                    className={`flex-shrink-0 font-semibold cursor-pointer py-2.5 px-5 rounded-full shadow-md transition duration-300 ease-in-out whitespace-nowrap text-sm md:text-base ${
+                    className={`flex-shrink-0 font-semibold cursor-pointer py-2.5 px-8 rounded-full shadow-md transition duration-300 ease-in-out whitespace-nowrap text-sm md:text-base ${
                       selectedCategory === categoryKey
                         ? 'bg-blue-600 text-white shadow-lg'
                         : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
