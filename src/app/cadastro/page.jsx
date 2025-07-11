@@ -19,16 +19,19 @@ const RegisterPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (password.length < 8) {
+            showToast("A senha deve ter 8 ou mais caracteres.");
+            return;
+        }
+        
         if (password !== confirmPassword) {
             showToast('As senhas não coincidem. Por favor, tente novamente.');
             return;
         }
         
-
         const success = cadastro(nome, sobrenome, email, password);
-        if (password.length < 8) {
-            showToast("Senha deve ter 8 ou mais caracteres");
-        } else if (success) {
+        if (success) {
             showToast('Cadastro realizado com sucesso!');
             router.push("/dashboard");
         } else {
@@ -41,7 +44,7 @@ const RegisterPage = () => {
 
     return (
         <div className='flex flex-col lg:flex-row w-full min-h-screen font-sans'>
-           
+            
             <div className='hidden lg:flex lg:w-1/2 bg-blue-600 items-center justify-center p-8'>
                 <div className='text-white text-center p-8 flex flex-col items-center '>
                     <Image
@@ -56,9 +59,9 @@ const RegisterPage = () => {
                 </div>
             </div>
 
-           
+            
             <div className='w-full lg:w-2/3 xl:w-1/2 min-h-screen flex items-center justify-center '>
-                <div className='w-full sm:w-4/5  2xl:w-2/3 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-lg bg-white'>
+                <div className='w-full sm:w-4/5 2xl:w-2/3 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-lg bg-white'>
                     <div className='flex items-center justify-center mb-8 gap-3 sm:gap-4'>
                         <Image src="/image.png" alt='Logo da NextBuy' height={70} width={35} className='w-auto h-auto max-w-[45px]' />
                         <h1 className='text-3xl sm:text-5xl font-extrabold text-gray-800 tracking-wider'>NEXTBUY</h1>
@@ -93,7 +96,7 @@ const RegisterPage = () => {
                             </div>
                         </div>
 
-                      
+                    
                         <div className='relative'>
                             <Mail className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400' size={20} />
                             <label htmlFor="email" className='sr-only'>Email</label>
@@ -121,7 +124,7 @@ const RegisterPage = () => {
                             />
                         </div>
 
-                     
+                    
                         <div className='relative'>
                             <Lock className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400' size={20} />
                             <label htmlFor="confirmPassword" className='sr-only'>Confirme sua senha</label>
@@ -135,7 +138,7 @@ const RegisterPage = () => {
                             />
                         </div>
 
-                       
+                        
                         <button
                             type="submit"
                             className='w-full bg-green-600 text-white md:py-3.5 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-200 shadow-md hover:shadow-lg cursor-pointer'
@@ -143,7 +146,7 @@ const RegisterPage = () => {
                             Criar Conta
                         </button>
 
-                     
+                    
                         <div className='text-center lg:text-lg text-gray-600 mb-8'>
                             Já tem uma conta?{' '}
                             <a href="/login" className='text-blue-600 hover:underline font-medium'>Faça Login</a>
