@@ -30,8 +30,11 @@ const Header = () => {
     <header className="  shadow-md">
       <div className="flex justify-between items-center bg-zinc-300  py-4 px-4 sm:p-3 md:p-4 shadow-lg relative">
         <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-          <Image src="/image.png" alt="Logo da NextBuy" width={1000} height={32} className="sm:w-12 sm:h-12 hidden sm:flex" />
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-800 tracking-wider">NEXTBUY</h1>
+          <Link href="/" className='flex gap-2 items-center'>
+            <Image src="/image.png" alt="Logo da NextBuy" width={1000} height={32} className="sm:w-12 sm:h-12 hidden sm:flex" />
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-800 tracking-wider">NEXTBUY</h1>
+          </Link>
+          
         </div>
 
         <div className='flex 2xl:hidden px-2 sm:px-4 md:px-8 hover:bg-white h-8 rounded-full items-center justify-center cursor-pointer'>

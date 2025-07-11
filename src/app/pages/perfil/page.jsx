@@ -356,24 +356,8 @@ const ProfilePage = () => {
       <p className="text-base md:text-base text-gray-600 mb-6">
         Acompanhe seus pedidos recentes e visualize os detalhes completos.
       </p>
-      <div className="space-y-4">
-        <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col sm:flex-row justify-between items-start sm:items-center">
-          <div>
-            <p className="font-semibold text-gray-800 text-base">Pedido #20250703-001</p>
-            <p className="text-base text-gray-600">Data: 03/07/2025</p>
-            <p className="text-base text-green-600 font-medium">Status: Entregue</p>
-          </div>
-          <Link href="/pedidos/20250703-001" className="text-blue-600 hover:underline transition-colors duration-300 mt-2 sm:mt-0 text-base">Ver Detalhes</Link>
-        </div>
-        <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col sm:flex-row justify-between items-start sm:items-center">
-          <div>
-            <p className="font-semibold text-gray-800 text-base">Pedido #20250620-005</p>
-            <p className="text-base text-gray-600">Data: 20/06/2025</p>
-            <p className="text-base text-yellow-600 font-medium">Status: Em Processamento</p>
-          </div>
-          <Link href="/pedidos/20250620-005" className="text-blue-600 hover:underline transition-colors duration-300 mt-2 sm:mt-0 text-base">Ver Detalhes</Link>
-        </div>
-      </div>
+     
+       <p className="text-gray-500 mb-4 text-base">Nenhum endereço cadastrado.</p>
     </div>
   );
 
