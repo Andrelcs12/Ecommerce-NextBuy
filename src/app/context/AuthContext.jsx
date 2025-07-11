@@ -42,10 +42,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   const cadastro = (nome, sobrenome, email, senha) => {
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
+ 
+    const storedUsers = localStorage.getItem("users");
+    const users = storedUsers ? JSON.parse(storedUsers) : [];
 
-    if (users.find(user => user.email.toLowerCase() === email.toLowerCase())) {
-      return false; // Email already exists
+    const emailLower = email.toLowerCase();
+
+    const emailAlreadyUsed = users.some(
+      user => user.email.toLowerCase() === emailLower
+    );
+
+    if (emailAlreadyUsed) {
+      return false;
     }
 
     const newUser = { nome, sobrenome, email, senha };
@@ -54,8 +62,10 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("users", JSON.stringify(updatedUsers));
     setUser(newUser);
     localStorage.setItem("loggedUser", JSON.stringify(newUser));
+
     return true;
   };
+
 
   const updateProfile = (currentEmail, updatedData) => {
     const users = JSON.parse(localStorage.getItem("users") || "[]");

@@ -23,7 +23,7 @@ const MenuPerfil = ({ isOpen }) => {
     return (
         <div
             ref={menuRef}
-            className="absolute top-18 w-full p-4 rounded-2xl bg-blue-50 shadow-xl opacity-0 hidden"
+            className="top-4 w-full p-4 rounded-2xl bg-blue-50 shadow-xl opacity-0 hidden"
         >
             <ul className="flex flex-col gap-4">
                 <li>

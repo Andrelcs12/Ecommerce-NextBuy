@@ -1,6 +1,6 @@
-// app/layout.js
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
+import { ToastProvider } from "./context/ToastContext"; // Importe o ToastProvider
 import "./globals.css";
 
 export const metadata = {
@@ -23,9 +23,10 @@ export default function RootLayout({ children }) {
     <html lang="pt-br">
       <body>
         <AuthProvider>
-          {/* Correct placement: CartProvider wraps its children */}
           <CartProvider>
-            {children}
+            <ToastProvider> {/* Adicione o ToastProvider aqui */}
+              {children}
+            </ToastProvider>
           </CartProvider>
         </AuthProvider>
       </body>

@@ -1,22 +1,21 @@
-// app/pages/configuracoes/page.jsx
+
 'use client';
 
 import Header from "../../components/Header";
-import { ArrowLeft, User } from "lucide-react"; // Only need User icon for the profile circle
+import { ArrowLeft, User } from "lucide-react"; 
 import Link from "next/link";
 import { useAuth } from "../../context/AuthContext";
-import { useState } from "react"; // useState is still needed for activeMenu state, even if simplified
+import { useState } from "react";
 
 const SettingsPage = () => {
   const { user } = useAuth();
-  // We keep activeMenu state even if not actively used for content,
-  // in case you want to easily re-introduce menu items later.
+ 
   const [activeMenu, setActiveMenu] = useState("configuracoes_gerais"); 
 
-  // Single, simplified content component for the main area
+  
   const GeneralSettingsContent = () => (
     <div>
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Página de Configuração</h2>
+      <h2 className="md:text-2xl text-xl font-bold text-gray-800 mb-4">Página de Configuração</h2>
       <p className="text-gray-600 mb-6">
         Esta é a área para gerenciar suas preferências e configurações gerais da conta.
       </p>
@@ -27,7 +26,7 @@ const SettingsPage = () => {
     </div>
   );
 
-  // This function will always return the simplified content for now
+ 
   const renderContent = () => {
     return <GeneralSettingsContent />;
   };
@@ -53,35 +52,23 @@ const SettingsPage = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-8">
-          {/* We can keep the sidebar menu structure for future expansion, but it will always show the same content for now. */}
+      
           <aside className="w-full md:w-1/4 bg-white rounded-lg shadow-md p-6">
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => setActiveMenu('configuracoes_gerais')}
-                  className={`flex items-center gap-3 px-4 py-3 cursor-pointer text-lg font-semibold w-full text-left transition-all duration-300 rounded-lg
+                  className={`flex items-center gap-3 px-4 py-3 cursor-pointer text-md md:text-lg font-semibold w-full text-left transition-all duration-300 
                     ${activeMenu === 'configuracoes_gerais'
                       ? 'text-blue-700 bg-blue-50 border-l-4 border-blue-600'
                       : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-l-4 hover:border-blue-300'
                     }`}
                 >
-                  <User size={20} /> {/* Using User icon as a general settings icon for now */}
+                  <User size={20} /> 
                   Configurações Gerais
                 </button>
               </li>
-              {/* You can add more placeholder menu items here if you wish,
-                  but they will all display the same GeneralSettingsContent for now. */}
-              {/*
-              <li>
-                <button
-                  onClick={() => setActiveMenu('notificacoes')}
-                  className={`...`}
-                >
-                  <Bell size={20} />
-                  Notificações
-                </button>
-              </li>
-              */}
+              
             </ul>
           </aside>
 

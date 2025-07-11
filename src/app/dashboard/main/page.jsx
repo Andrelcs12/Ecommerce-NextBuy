@@ -1,12 +1,13 @@
-// app/page.jsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import { FilterIcon, Search, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import { useCart } from '../../context/CartContext'; // Import useCart
-
+import { useCart } from '../../context/CartContext'; 
+import {useToast} from "../../context/ToastContext"
+import Footer from "../../components/footer"
 const Page = () => {
+  const { showToast } = useToast();
   const [dados, setDados] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,14 +16,14 @@ const Page = () => {
   const [sortOrder, setSortOrder] = useState('none');
   const [showFilterOptions, setShowFilterOptions] = useState(false);
 
-  const { addItemToCart } = useCart(); // Use the useCart hook to get addItemToCart
+  const { addItemToCart } = useCart(); 
 
   const categoryMap = {
     Todos: 'Todos',
     'smartphones': 'Smartphones',
     laptops: 'Notebooks',
-    'tablets': "tablets",
-    'mobile-accessories': "Acessórios de celular",
+    'tablets': "Tablets",
+    'mobile-accessories': "Acessórios de Celular",
     fragrances: 'Fragrâncias',
     groceries: 'Mercearia',
     'home-decoration': 'Decoração para Casa',
@@ -31,14 +32,12 @@ const Page = () => {
     'mens-shoes': 'Sapatos Masculinos',
     'mens-watches': 'Relógios Masculinos',
     motorcycle: 'Motocicletas',
-    skincare: 'Cuidados com a Pele',
     'womens-dresses': 'Vestidos Femininos',
     'womens-shoes': 'Sapatos Femininos',
     'womens-watches': 'Relógios Femininos',
     'womens-bags': 'Bolsas Femininas',
     'womens-jewellery': 'Joias Femininas',
     sunglasses: 'Óculos de Sol',
-    automotive: 'Automotivo',
   };
 
   const categoriesForDisplay = ['Todos', ...Object.keys(categoryMap).filter(key => key !== 'Todos')];
@@ -47,13 +46,13 @@ const Page = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://dummyjson.com/products?limit=0');
+        setError(null);
+        const response = await fetch('https://dummyjson.com/products?limit=0'); 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`Erro HTTP! Status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log(data);
         setDados(data.products);
       } catch (err) {
         setError(err.message);
@@ -84,7 +83,7 @@ const Page = () => {
 
   const handleAddToCart = (product) => {
     addItemToCart(product);
-    alert(`"${product.title}" adicionado ao carrinho!`);
+    showToast(`"${product.title}" adicionado ao carrinho!`); 
   };
 
   const sortedAndFilteredProducts = dados
@@ -109,56 +108,62 @@ const Page = () => {
     });
 
   return (
-    <div className="w-full min-h-screen font-sans bg-gray-50 mt-32">
-      <main className="px-4 md:px-12 py-6">
-        <div className='relative px-4 md:px-8 pt-16 pb-12 md:pb-24 rounded-[3rem] overflow-hidden shadow-xl min-h-[400px] flex items-center justify-center bg-gradient-to-br from-blue-300 to-blue-600'>
+    <div className="w-full min-h-screen font-sans  2xl:mt-32 mt-16">
+      <main className=" py-6">
+        <div className='relative  px-4 md:px-8 pt-16 pb-12 md:pb-24  overflow-hidden shadow-xl min-h-[400px] flex items-center justify-center bg-gradient-to-br from-blue-300 to-blue-600'>
           <div className="absolute inset-0 bg-blue-500 opacity-20"></div>
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full px-4 md:px-20 lg:px-40">
-            <h1 className='text-4xl md:text-7xl font-extrabold max-w-xl text-center md:text-left leading-tight text-blue-900 drop-shadow-md'>
+          <div className="relative  z-10 flex flex-col md:flex-row items-center justify-between w-full px-4 md:px-20 lg:px-40">
+            <h1 className='text-2xl md:text-7xl font-extrabold max-w-xl text-center md:text-left leading-tight text-blue-900 drop-shadow-md'>
               Busque seus sonhos e sua <span className="text-white">NextBuy</span>
             </h1>
 
             <div className='relative mt-8 md:mt-0'>
-              <img src="/banner.png" alt='banner' className="h-[400px] w-[400px] object-contain" />
+              <img 
+                src="/banner.png" 
+                alt='Banner promocional de produtos' 
+                className="md:h-[400px] md:w-[400px] w-[200px] object-contain" 
+                onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/400x400/D1E9FF/1C3AA9?text=NextBuy`; }}
+              />
             </div>
           </div>
         </div>
 
-        <div className='bg-white p-8 mt-8 rounded-3xl shadow-lg'>
-          <section className='mb-8'>
-            <div className='flex flex-col md:flex-row gap-4 items-center mb-6'>
+        <div className=' p-4 mt-0  md:mt-8 rounded-3xl shadow-lg'>
+          <section className='mb-8' aria-label="Filtros e busca de produtos">
+            <div className='flex gap-4 items-center mb-6'>
+              
               <div className='relative flex-grow w-full md:w-auto'>
-                <Search className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400' size={20} />
+                <Search className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400' size={20} aria-hidden="true" />
+                <label htmlFor="product-search" className="sr-only">Pesquisar produtos</label>
                 <input
+                  id="product-search"
                   type="text"
                   placeholder="Pesquisar produtos..."
                   value={searchTerm}
                   onChange={handleSearchChange}
-                  className='w-full pl-12 pr-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 text-lg bg-white shadow-sm'
+                  className='w-full pl-12 pr-4 md:py-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-md bg-white shadow-sm'
+                  aria-label="Campo de pesquisa de produtos"
                 />
               </div>
 
-              <button
-                onClick={() => setShowFilterOptions(!showFilterOptions)}
-                className="flex md:hidden gap-2 items-center bg-blue-50 py-3 px-5 rounded-full hover:bg-blue-100 transition duration-300 shadow-sm cursor-pointer whitespace-nowrap"
-              >
-                <FilterIcon />
-                <span>{showFilterOptions ? 'Esconder Filtros' : 'Mostrar Filtros'}</span>
-              </button>
+              
 
-              <div className={`flex flex-col md:flex-row gap-4 w-full md:w-auto ${showFilterOptions ? 'flex' : 'hidden md:flex'}`}>
+              <div id="filter-sort-options" className={`flex flex-col md:flex-row gap-4 w-full md:w-auto ${showFilterOptions ? 'flex' : ' md:flex'}`}>
                 <div className='relative w-full md:w-auto'>
+                  <label htmlFor="sort-order" className="sr-only">Ordenar produtos por</label>
                   <select
+                    id="sort-order"
                     value={sortOrder}
                     onChange={handleSortChange}
-                    className='appearance-none w-full bg-blue-50 py-3 px-5 pr-10 rounded-full shadow-sm cursor-pointer border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 text-lg text-blue-800 font-semibold'
+                    className='appearance-none w-full bg-blue-50 md:py-3 py-2 px-5 pr-10 rounded-md shadow-sm cursor-pointer border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-md text-blue-800 font-semibold'
+                    aria-label="Selecionar ordem de exibição dos produtos"
                   >
                     <option value="none">Ordenar por...</option>
                     <option value="priceAsc">Preço: Menor para Maior</option>
                     <option value="priceDesc">Preço: Maior para Menor</option>
                   </select>
-                  <ChevronDown className='absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none' size={20} />
+                  <ChevronDown className='absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none' size={20} aria-hidden="true" />
                 </div>
               </div>
             </div>
@@ -166,17 +171,19 @@ const Page = () => {
             <h2 className="text-xl md:text-3xl font-bold text-blue-800 mb-6 text-center md:text-left mt-8">
               Categorias Populares
             </h2>
-            <div className="flex overflow-x-auto pb-4 scrollbar-hide">
+            <div className="flex overflow-x-auto pb-4 scrollbar-hide" role="group" aria-label="Navegação por categoria de produtos">
               <div className="flex gap-3 md:gap-4 px-2">
-                {categoriesForDisplay.map((categoryKey, index) => (
+                {categoriesForDisplay.map((categoryKey) => (
                   <button
-                    key={index}
+                    key={categoryKey}
                     onClick={() => handleCategoryClick(categoryKey)}
                     className={`flex-shrink-0 font-semibold cursor-pointer py-2.5 px-5 rounded-full shadow-md transition duration-300 ease-in-out whitespace-nowrap text-sm md:text-base ${
                       selectedCategory === categoryKey
                         ? 'bg-blue-600 text-white shadow-lg'
                         : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
                     }`}
+                    aria-pressed={selectedCategory === categoryKey}
+                    aria-label={`Filtrar por categoria: ${categoryMap[categoryKey]}`}
                   >
                     {categoryMap[categoryKey]}
                   </button>
@@ -185,11 +192,11 @@ const Page = () => {
             </div>
           </section>
 
-          <section className="mt-8 border-t pt-8 border-zinc-200">
-            {loading && <p className="text-center text-blue-700 text-lg">Carregando produtos...</p>}
-            {error && <p className="text-center text-red-600 text-lg">Erro ao carregar produtos: {error}</p>}
+          <section className="mt-8 border-t pt-8 border-zinc-200" aria-label="Lista de produtos disponíveis">
+            {loading && <p className="text-center text-blue-700 text-lg" aria-live="polite">Carregando produtos...</p>}
+            {error && <p className="text-center text-red-600 text-lg" aria-live="assertive">Erro ao carregar produtos: {error}</p>}
             {!loading && !error && sortedAndFilteredProducts.length === 0 && (
-              <p className="text-center text-blue-700 text-lg">Nenhum produto encontrado com os critérios selecionados.</p>
+              <p className="text-center text-blue-700 text-lg" aria-live="polite">Nenhum produto encontrado com os critérios selecionados.</p>
             )}
 
             {!loading && !error && sortedAndFilteredProducts.length > 0 && (
@@ -197,28 +204,37 @@ const Page = () => {
                 {sortedAndFilteredProducts.map((produto) => (
                   <div
                     key={produto.id}
-                    className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between duration-300 hover:bg-blue-50 hover:shadow-xl transform hover:-translate-y-1"
+                    className="bg-white rounded-xl shadow-lg md:p-6 p-3 flex flex-col justify-between duration-300 hover:bg-blue-50 hover:shadow-xl transform hover:-translate-y-1"
+                    role="article" 
+                    aria-labelledby={`product-title-${produto.id}`}
                   >
-                    <Link href={`/produto/${produto.id}`} className="flex flex-col h-full">
+                    <Link href={`/produto/${produto.id}`} className="flex flex-col h-full" aria-label={`Ver detalhes de ${produto.title}`}>
                       <div className='w-full justify-center flex mb-4'>
                         <img
+                          loading="lazy"
                           src={produto.thumbnail}
                           alt={produto.title}
-                          className="w-full h-48 object-contain rounded-md"
-                          onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/250x200/D1E9FF/1C3AA9?text=Sem+Imagem`; }}
+                          className="w-full md:h-48 h-36 object-contain rounded-md"
+                          onError={(e) => {
+                            if (e.target.src !== `https://placehold.co/250x200/D1E9FF/1C3AA9?text=Sem+Imagem`) {
+                              e.target.onerror = null;
+                              e.target.src = `https://placehold.co/250x200/D1E9FF/1C3AA9?text=Sem+Imagem`;
+                            }
+                          }}
                         />
+
                       </div>
 
                       <div className="flex-grow mb-4">
-                        <h3 className="text-xl font-semibold text-blue-900 mb-1 leading-tight">{produto.title}</h3>
-                        <span className="text-2xl font-bold text-blue-700">{valorConvertido(produto.price)}</span>
+                        <h3 id={`product-title-${produto.id}`} className="md:text-xl text-sm  font-semibold text-blue-900 mb-1 leading-tight">{produto.title}</h3>
+                        <span className="md:text-2xl text-md font-bold text-blue-700">{valorConvertido(produto.price)}</span>
                       </div>
                     </Link>
                     <div className="mt-auto">
-                      {/* Changed to a button and uses handleAddToCart */}
                       <button
                         onClick={() => handleAddToCart(produto)}
-                        className='bg-blue-600 w-full text-center hover:bg-blue-700 cursor-pointer transition duration-300 py-3 rounded-full text-white font-bold text-lg shadow-md flex items-center justify-center'
+                        className='bg-blue-600 w-full text-center hover:bg-blue-700 cursor-pointer transition duration-300 md:py-3 py-2 rounded-full text-white font-bold md:text-lg text-sm shadow-md flex items-center justify-center'
+                        aria-label={`Adicionar ${produto.title} ao carrinho`}
                       >
                         Adicionar ao carrinho
                       </button>
@@ -230,6 +246,7 @@ const Page = () => {
           </section>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

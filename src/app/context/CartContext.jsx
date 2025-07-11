@@ -1,34 +1,34 @@
-// context/CartContext.js
+
 'use client';
 
 import React, { useContext, createContext, useEffect, useState } from "react";
-import { useAuth } from "../context/AuthContext"; // Import useAuth
+import { useAuth } from "../context/AuthContext"; 
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const { user, loading: authLoading, loadUserCart, saveUserCart } = useAuth(); // Get new functions from AuthContext
+  const { user, loading: authLoading, loadUserCart, saveUserCart } = useAuth(); 
   const [cartItems, setCartItems] = useState([]);
   const [loadingCart, setLoadingCart] = useState(true);
 
-  // Load cart when user or authLoading changes
+ 
   useEffect(() => {
     if (!authLoading) {
       if (user) {
-        setCartItems(loadUserCart()); // Use loadUserCart from AuthContext
+        setCartItems(loadUserCart()); 
       } else {
-        setCartItems([]); // Clear cart if no user
+        setCartItems([]); 
       }
       setLoadingCart(false);
     }
-  }, [user, authLoading, loadUserCart]); // Add loadUserCart to dependencies
+  }, [user, authLoading, loadUserCart]); 
 
-  // Save cart whenever cartItems change, but only if not loading and user exists
+ 
   useEffect(() => {
     if (!loadingCart && user) {
-      saveUserCart(cartItems); // Use saveUserCart from AuthContext
+      saveUserCart(cartItems);
     }
-  }, [user, cartItems, loadingCart, saveUserCart]); // Add saveUserCart to dependencies
+  }, [user, cartItems, loadingCart, saveUserCart]); 
 
   const addItemToCart = (item, quantityToAdd = 1) => {
     if (!user) {
@@ -81,7 +81,7 @@ export const CartProvider = ({ children }) => {
       return;
     }
     setCartItems([]);
-    saveUserCart([]); // Explicitly save an empty cart
+    saveUserCart([]); 
   };
 
   const getTotalItems = () => {
