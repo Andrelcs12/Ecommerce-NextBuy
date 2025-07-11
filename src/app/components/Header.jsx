@@ -95,7 +95,7 @@ const Header = () => {
                 </Link>
               </li>
               
-              <li className="w-full px-2 mt-2">
+              <li className="w-full px-2 ">
                 <Link href="/carrinho" className={`relative flex gap-2 items-center py-3 px-4 rounded-full transition duration-300 shadow-sm ${
                   pathname === '/carrinho' ? 'bg-blue-600 text-white shadow-lg' : 'bg-blue-50 hover:bg-blue-100 text-blue-800'
                 }`}>
@@ -105,7 +105,7 @@ const Header = () => {
                   </span>
                 </Link>
               </li>
-              <li className="w-full px-2 mt-2">
+              <li className="w-full px-2 ">
                 <div className='relative cursor-pointer'>
                   <div onClick={handleMenuPerfil} className={`relative flex gap-2 items-center py-3 px-4 rounded-full transition duration-300 shadow-sm ${
                     pathname === '/perfil' ? 'bg-blue-600 text-white shadow-lg' : 'bg-blue-50 hover:bg-blue-100 text-blue-800'
