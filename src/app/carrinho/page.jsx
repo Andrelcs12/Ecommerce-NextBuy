@@ -35,7 +35,7 @@ export default function CartPage() {
     <Link href="/checkout" className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold text-md hover:bg-blue-800 transition duration-300 shadow-lg text-center block">
       Finalizar Compra
     </Link>
-    <Link href="/" className="block text-center text-blue-600 hover:underline mt-4 ">
+    <Link href="/" className="block text-center underline text-blue-600 hover:underline mt-4 ">
       Continuar Comprando
     </Link>
   </div>
@@ -43,7 +43,7 @@ export default function CartPage() {
   {cartItems.length === 0 ? (
     <div className="text-center py-10 sm:hidden flex flex-col items-center"> 
       <p className="text-lg text-gray-600 mb-6">Seu carrinho está vazio.</p>
-      <Link href="/" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 text-md">
+      <Link href="/" className="bg-blue-600 underline text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 text-md">
         Continuar Comprando
       </Link>
     </div>
@@ -145,7 +145,7 @@ export default function CartPage() {
         {cartItems.length === 0 ? (
           <div className="text-center sm:flex mt-20 hidden gap-4 items-center flex-col  ">
             <p className="text-xl text-gray-600">Seu carrinho está vazio.</p>
-            <Link href="/" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+            <Link href="/" className="bg-blue-600 underline text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
               Continuar Comprando
             </Link>
           </div>
@@ -230,7 +230,7 @@ export default function CartPage() {
               <Link href="/checkout" className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-800 transition duration-300 shadow-lg text-center block">
                 Finalizar Compra
               </Link>
-              <Link href="/" className="block text-center text-blue-600 hover:underline mt-4">
+              <Link href="/" className="block text-center underline text-blue-600 hover:underline mt-4">
                 Continuar Comprando
               </Link>
             </div>

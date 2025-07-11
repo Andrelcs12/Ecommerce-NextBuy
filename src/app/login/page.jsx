@@ -95,7 +95,7 @@ const LoginPage = () => {
 
                         <div className='text-center text-base text-gray-600 md:mt-8'>
                             Não tem uma conta?{' '}
-                            <a href="/cadastro" className='text-blue-600 hover:underline font-medium'>Crie sua conta</a>
+                            <a href="/cadastro" className='text-blue-600 hover:underline font-medium  underline '>Crie sua conta</a>
                         </div>
                     </form>
                 </div>

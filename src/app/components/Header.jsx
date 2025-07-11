@@ -161,8 +161,10 @@ const Header = () => {
           }`}>
             <ShoppingCart color={`${pathname === '/carrinho' ? '#FFFFFF' : '#3B82F6'}`} strokeWidth={2.5} />
             <span className={`${pathname === '/carrinho' ? 'text-white' : 'text-blue-700'} font-bold text-lg`}>
-              {getTotalItems()}
+              {getTotalItems()}  
+              {getTotalItems() > 1 ? " produtos" : " produto"}
             </span>
+
           </Link>
 
           <div className='relative cursor-pointer'>

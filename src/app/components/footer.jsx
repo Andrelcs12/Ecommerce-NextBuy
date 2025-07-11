@@ -65,11 +65,11 @@ export default function Footer() {
           <ul className="space-y-2">
             <li className="flex items-center ">
               <Mail size={18} className="mr-2 text-gray-400" />
-              <a href="mailto:apglu.26@gmail.com" className="hover:text-blue-400 transition-colors text-lg">apglu.26@gmail.com</a>
+              <a href="mailto:apglu.26@gmail.com" className="hover:text-blue-400 underline transition-colors text-lg">apglu.26@gmail.com</a>
             </li>
             <li className="flex items-center ">
               <Phone size={18} className="mr-2 text-gray-400" />
-              <a href="tel:+5579996021365" className="hover:text-blue-400 transition-colors text-lg">(79) 99602-1365</a>
+              <a href="tel:+5579996021365" className="hover:text-blue-400 underline transition-colors text-lg">(79) 99602-1365</a>
             </li>
             <li className="flex items-center  text-lg ">
               <MapPin size={18} className="mr-2 text-gray-400" />
