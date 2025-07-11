@@ -16,7 +16,6 @@ const ProfilePage = () => {
 
   const AccountDetails = () => {
     const [firstName, setFirstName] = useState(user?.nome || '');
-    const [lastName, setLastName] = useState(user?.sobrenome || '');
     const [email, setEmail] = useState(user?.email || '');
 
     const [currentPassword, setCurrentPassword] = useState('');
@@ -33,7 +32,6 @@ const ProfilePage = () => {
 
   const result = updateProfile(user.email, {
         nome: firstName,
-        sobrenome: lastName,
         email: email,
       });
 
@@ -78,7 +76,6 @@ const ProfilePage = () => {
     useEffect(() => {
       if (user) {
         setFirstName(user.nome || '');
-        setLastName(user.sobrenome || '');
         setEmail(user.email || '');
       }
     }, [user]);
@@ -94,7 +91,7 @@ const ProfilePage = () => {
 
         <form onSubmit={handleUpdateProfile} className="bg-gray-50 p-4 md:p-6 rounded-lg shadow-sm mb-6 md:mb-8 border border-gray-200">
           <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-4">Detalhes do Perfil</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
             <div>
               <label htmlFor="firstName" className="block text-base font-medium text-gray-700 mb-1">Nome</label>
               <input
@@ -107,18 +104,7 @@ const ProfilePage = () => {
                 required
               />
             </div>
-            <div>
-              <label htmlFor="lastName" className="block text-base font-medium text-gray-700 mb-1">Sobrenome</label>
-              <input
-                type="text"
-                id="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
-                placeholder="Seu sobrenome"
-                required
-              />
-            </div>
+          
           </div>
           <div className="mt-4">
             <label htmlFor="email" className="block text-base font-medium text-gray-700 mb-1">Email</label>
@@ -515,7 +501,7 @@ const ProfilePage = () => {
             {user?.nome ? user.nome.charAt(0) : <User size={36} className="md:size-48" />}
           </div>
           <div className="flex flex-col text-center sm:text-left">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{user?.nome || 'Usuário'} {user?.sobrenome || ''}</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{user?.nome || 'Usuário'}</h1>
             <p className="text-base sm:text-base text-gray-600">{user?.email || 'email@example.com'}</p>
           </div>
         </div>

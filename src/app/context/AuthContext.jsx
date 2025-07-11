@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     return false;
   };
 
-  const cadastro = (nome, sobrenome, email, senha) => {
+  const cadastro = (nome, email, senha) => {
  
     const storedUsers = localStorage.getItem("users");
     const users = storedUsers ? JSON.parse(storedUsers) : [];
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
       return false;
     }
 
-    const newUser = { nome, sobrenome, email, senha };
+    const newUser = { nome, email, senha };
     const updatedUsers = [...users, newUser];
 
     localStorage.setItem("users", JSON.stringify(updatedUsers));

@@ -192,10 +192,11 @@ const Header = () => {
             <div onClick={handleMenuPerfil} className={`relative flex gap-2 items-center py-3 px-5 rounded-full transition duration-300 shadow-sm ${
               pathname === '/perfil' ? 'bg-blue-600 text-white shadow-lg' : 'bg-blue-50 hover:bg-blue-100 text-blue-800'
             }`}>
-              <h1 className={`${pathname === '/perfil' ? 'text-white' : 'text-blue-800'} text-lg font-bold`}>{user?.nome} {user?.sobrenome}</h1>
+              <h1 className={`${pathname === '/perfil' ? 'text-white' : 'text-blue-800'} text-lg font-bold`}>{user?.nome}</h1>
               <div className={`rounded-full h-10 w-10 flex items-center justify-center font-bold text-sm ${pathname === '/perfil' ? 'bg-white text-blue-600' : 'bg-blue-600 text-white'}`}>
-                  {user?.nome ? user.nome.charAt(0) : ''}{user?.sobrenome ? user.sobrenome.charAt(0) : ''}
+                  {user?.nome ? user.nome.charAt(0) : ''}
               </div>
+
               {menuPerfil ? (
                 <ChevronUp size={20} className={`${pathname === '/perfil' ? 'text-white' : 'text-blue-600'}`} />
               ) : (

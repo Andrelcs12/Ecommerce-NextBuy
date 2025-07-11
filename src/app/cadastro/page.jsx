@@ -12,10 +12,9 @@ const RegisterPage = () => {
     const router = useRouter();
     const { cadastro } = useAuth();
     const [nome, setNome] = useState('');
-    const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,12 +24,8 @@ const RegisterPage = () => {
                 return;
             }
 
-            if (password !== confirmPassword) {
-                showToast('As senhas não coincidem. Por favor, tente novamente.');
-                return;
-            }
 
-            const success = cadastro(nome, sobrenome, email, password);
+            const success = cadastro(nome, email, password);
             if (success) {
                 showToast('Cadastro realizado com sucesso!');
                 router.push("/dashboard");
@@ -38,7 +33,7 @@ const RegisterPage = () => {
                 showToast('Erro ao cadastrar. Verifique se o email já está em uso.');
                 setEmail('');
                 setPassword('');
-                setConfirmPassword('');
+                
             }
     }
 
@@ -83,17 +78,7 @@ const RegisterPage = () => {
                                     className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
                                 />
                             </div>
-                            <div className='relative w-full'>
-                                <User className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400' size={20} />
-                                <input
-                                    value={sobrenome}
-                                    onChange={(e) => setSobrenome(e.target.value)}
-                                    type="text"
-                                    id="sobrenome"
-                                    placeholder='Sobrenome'
-                                    className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
-                                />
-                            </div>
+                            
                         </div>
 
                     
@@ -105,7 +90,7 @@ const RegisterPage = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 type="email"
                                 id="email"
-                                placeholder='Email'
+                                placeholder='Crie seu email'
                                 className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
                             />
                         </div>
@@ -124,29 +109,12 @@ const RegisterPage = () => {
                             />
                         </div>
 
-                    
-                        <div className='relative'>
-                            <Lock className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-400' size={20} />
-                            <label htmlFor="confirmPassword" className='sr-only'>Confirme sua senha</label>
-                            <input
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                type="password"
-                                id="confirmPassword"
-                                placeholder='Confirme sua senha'
-                                className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
-                            />
-                        </div>
-
                         
-                        <button
-                            type="submit"
-                            className='w-full bg-green-600 text-white md:py-3.5 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-200 shadow-md hover:shadow-lg cursor-pointer'
-                        >
+                        <button type="submit"
+                            className='w-full bg-green-600 text-white md:py-3.5 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-200 shadow-md hover:shadow-lg cursor-pointer'>
                             Criar Conta
                         </button>
 
-                    
                         <div className='text-center lg:text-lg text-gray-600 mb-8'>
                             Já tem uma conta?{' '}
                             <a href="/login" className='text-blue-600 underline font-medium'>Faça Login</a>
