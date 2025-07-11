@@ -14,7 +14,7 @@ const MenuPerfil = ({ isOpen }) => {
         gsap.to(menuRef.current, {
             y: isOpen ? 2 : -20,
             opacity: isOpen ? 1 : 0,
-            duration: 0.5,
+            duration: 0.7,
             display: isOpen ? 'block' : 'none',
             ease: 'power2.out'
         })
