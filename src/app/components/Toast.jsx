@@ -52,31 +52,19 @@ const Toast = ({ id, message, type, onClose, duration = 3000 }) => {
   }
 
   return (
-  <div className="fixed top-4 w-full flex justify-center z-50 pointer-events-none">
     <div
-      className={`
-        ${baseClasses}
-        ${bgColor}
-        ${textColor}
-        border ${borderColor}
-        ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}
-        pointer-events-auto
-        max-w-sm w-full mx-4 sm:mx-0
-      `}
+      className={`${baseClasses} ${bgColor} ${textColor} border ${borderColor} ${
+        isVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+      } ${!isVisible ? "pointer-events-none" : ""}`}
       role="alert"
     >
       <div className={iconClasses}>{icon}</div>
       <div className={messageClasses}>{message}</div>
-      <button
-        onClick={() => setIsVisible(false)}
-        className="ml-4 p-1 rounded-full cursor-pointer hover:bg-gray-200"
-      >
+      <button onClick={() => setIsVisible(false)} className="ml-4 p-1 rounded-full cursor-pointer hover:bg-gray-200">
         <XCircle size={16} className={`text-gray-500 ${textColor}`} />
       </button>
     </div>
-  </div>
-);
-
+  );
 };
 
 export default Toast;

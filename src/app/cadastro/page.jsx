@@ -77,7 +77,7 @@ const RegisterPage = () => {
                                     type="text"
                                     id="nome"
                                     placeholder='Nome'
-                                    className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-sm'
+                                    className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
                                 />
                             </div>
                             <div className='relative w-full'>
@@ -88,7 +88,7 @@ const RegisterPage = () => {
                                     type="text"
                                     id="sobrenome"
                                     placeholder='Sobrenome'
-                                    className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-sm'
+                                    className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
                                 />
                             </div>
                         </div>
@@ -103,7 +103,7 @@ const RegisterPage = () => {
                                 type="email"
                                 id="email"
                                 placeholder='Email'
-                                className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-sm'
+                                className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
                             />
                         </div>
 
@@ -117,7 +117,7 @@ const RegisterPage = () => {
                                 type="password"
                                 id="password"
                                 placeholder='Crie sua senha (8+ caracteres)'
-                                className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-sm'
+                                className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
                             />
                         </div>
 
@@ -131,7 +131,7 @@ const RegisterPage = () => {
                                 type="password"
                                 id="confirmPassword"
                                 placeholder='Confirme sua senha'
-                                className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-sm'
+                                className='w-full bg-white pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 md:text-lg text-base'
                             />
                         </div>
 
