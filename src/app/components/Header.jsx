@@ -94,20 +94,7 @@ const Header = () => {
                   Contato
                 </Link>
               </li>
-              <li className="w-full px-2 mt-2">
-                <div className="flex items-center bg-blue-50 p-2 rounded-full shadow-md focus-within:ring-4 focus-within:ring-blue-300 transition-all duration-300">
-                  <input
-                    type="text"
-                    placeholder="Buscar produtos..."
-                    className="px-2 py-1 text-sm bg-transparent outline-none w-full placeholder-blue-400 text-blue-800"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                  />
-                  <button className="bg-blue-600 p-1 rounded-full shadow-md hover:bg-blue-400 cursor-pointer transition duration-300 ease-in-out">
-                    <Search size={20} className="text-white" strokeWidth={2.5} />
-                  </button>
-                </div>
-              </li>
+              
               <li className="w-full px-2 mt-2">
                 <Link href="/carrinho" className={`relative flex gap-2 items-center py-3 px-4 rounded-full transition duration-300 shadow-sm ${
                   pathname === '/carrinho' ? 'bg-blue-600 text-white shadow-lg' : 'bg-blue-50 hover:bg-blue-100 text-blue-800'
