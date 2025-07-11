@@ -200,7 +200,7 @@ const Page = () => {
             )}
 
             {!loading && !error && sortedAndFilteredProducts.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
                 {sortedAndFilteredProducts.map((produto) => (
                   <div
                     key={produto.id}
@@ -233,7 +233,7 @@ const Page = () => {
                     <div className="mt-auto">
                       <button
                         onClick={() => handleAddToCart(produto)}
-                        className='bg-blue-600 w-full text-center hover:bg-blue-700 cursor-pointer transition duration-300 md:py-3 py-2 rounded-full text-white font-bold md:text-lg text-sm shadow-md flex items-center justify-center'
+                        className='bg-blue-600 w-full text-center hover:bg-blue-700 cursor-pointer transition duration-300 md:py-3 py-2 rounded-full text-white font-bold md:text-lg text-[12px] shadow-md flex items-center justify-center'
                         aria-label={`Adicionar ${produto.title} ao carrinho`}
                       >
                         Adicionar ao carrinho
